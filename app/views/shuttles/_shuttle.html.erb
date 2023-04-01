@@ -14,11 +14,6 @@
     <%= shuttle.max_capacity %>
   </p>
 
-  <p class="my-5">
-    <strong class="font-medium mb-1">Service:</strong>
-    <%= shuttle.service_id %>
-  </p>
-
   <% if action_name != "show" %>
     <%= link_to "Show this shuttle", shuttle, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this shuttle', edit_shuttle_path(shuttle), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
