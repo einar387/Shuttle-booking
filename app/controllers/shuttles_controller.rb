@@ -41,7 +41,7 @@ class ShuttlesController < ApplicationController
   def update
     respond_to do |format|
       if @shuttle.update(shuttle_params)
-        format.html { redirect_to service_shuttle_url(@shuttle), notice: "Shuttle was successfully updated." }
+        format.html { redirect_to shuttle_url(@shuttle), notice: "Shuttle was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
