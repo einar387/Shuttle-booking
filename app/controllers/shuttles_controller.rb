@@ -70,6 +70,6 @@ class ShuttlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shuttle_params
-      params.permit(:description, :setoff_time, :max_capacity, :service_id)
+      params.require(:shuttle).permit(:description, :setoff_time, :max_capacity, :service_id)
     end
 end
