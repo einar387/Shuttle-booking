@@ -1,6 +1,6 @@
 class ShuttlesController < ApplicationController
-  before_action :get_service
-  before_action :set_shuttle, only: %i[ show edit update destroy ]
+  before_action :get_service, except: %i[ show edit ]
+  before_action :set_shuttle, only: %i[ update destroy ]
 
   # GET /shuttles or /shuttles.json
   def index
@@ -9,6 +9,8 @@ class ShuttlesController < ApplicationController
 
   # GET /shuttles/1 or /shuttles/1.json
   def show
+    @shuttle = Shuttle.find(params[:id])
+    @service = @shuttle.service
   end
 
   # GET /shuttles/new
@@ -18,6 +20,8 @@ class ShuttlesController < ApplicationController
 
   # GET /shuttles/1/edit
   def edit
+    @shuttle = Shuttle.find(params[:id])
+    @service = @shuttle.service
   end
 
   # POST /shuttles or /shuttles.json
