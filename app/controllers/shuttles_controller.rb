@@ -1,6 +1,6 @@
 class ShuttlesController < ApplicationController
-  before_action :get_service, except: %i[ show edit ]
-  before_action :set_shuttle, only: %i[ update destroy ]
+  before_action :get_service, except: %i[ show edit destroy]
+  before_action :set_shuttle, only: %i[ update ]
 
   # GET /shuttles or /shuttles.json
   def index
@@ -50,10 +50,12 @@ class ShuttlesController < ApplicationController
 
   # DELETE /shuttles/1 or /shuttles/1.json
   def destroy
+    @shuttle = Shuttle.find(params[:id])
+    service_id = @shuttle.service_id
     @shuttle.destroy
 
     respond_to do |format|
-      format.html { redirect_to service_shuttles_url(@shuttle), notice: "Shuttle was successfully destroyed." }
+      format.html { redirect_to service_shuttles_url(service_id), notice: "Shuttle was successfully destroyed." }
     end
   end
 
