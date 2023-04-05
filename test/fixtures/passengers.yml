@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  first_name: MyString
+  last_name: MyString
+  contact_number: MyString
+  email: MyString
+  number_of_seat: 1
+
+two:
+  service: two
+  first_name: MyString
+  last_name: MyString
+  contact_number: MyString
+  email: MyString
+  number_of_seat: 1
