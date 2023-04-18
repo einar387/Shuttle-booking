@@ -1,5 +1,6 @@
 class PassengersController < ApplicationController
   before_action :set_passenger, only: %i[ show edit update destroy ]
+  before_action :get_service, except: %i[ show edit destroy]
 
   # GET /passengers or /passengers.json
   def index
@@ -12,7 +13,7 @@ class PassengersController < ApplicationController
 
   # GET /passengers/new
   def new
-    @passenger = Passenger.new
+    @passenger = @service.passengers.build
   end
 
   # GET /passengers/1/edit
@@ -21,7 +22,7 @@ class PassengersController < ApplicationController
 
   # POST /passengers or /passengers.json
   def create
-    @passenger = Passenger.new(passenger_params)
+    @passenger = @service.passengers.build(passenger_params)
 
     respond_to do |format|
       if @passenger.save
@@ -58,6 +59,10 @@ class PassengersController < ApplicationController
   end
 
   private
+    def get_service
+      @service = Service.find(params[:service_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_passenger
       @passenger = Passenger.find(params[:id])
@@ -65,6 +70,6 @@ class PassengersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def passenger_params
-      params.require(:passenger).permit(:service_id, :first_name, :last_name, :contact_number, :email, :number_of_seat)
+      params.require(:passenger).permit(:service_id, :first_name, :last_name, :contact_number, :email, :number_of_seat, :service_id)
     end
 end
