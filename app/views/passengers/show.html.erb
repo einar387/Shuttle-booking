@@ -4,7 +4,33 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @passenger %>
+      <div id="<%= dom_id @passenger %>">
+
+        <p class="my-5">
+          <strong class="block font-medium mb-1">First name:</strong>
+          <%= @passenger.first_name %>
+        </p>
+
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Last name:</strong>
+          <%= @passenger.last_name %>
+        </p>
+
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Contact number:</strong>
+          <%= @passenger.contact_number %>
+        </p>
+
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Email:</strong>
+          <%= @passenger.email %>
+        </p>
+
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Number of seat:</strong>
+          <%= @passenger.number_of_seat %>
+        </p>
+      </div>
 
     <%= link_to 'Edit this passenger', edit_passenger_path(@passenger), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
