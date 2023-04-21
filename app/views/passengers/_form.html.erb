@@ -32,6 +32,10 @@
   </div>
 
   <div class="my-5">
+    <%= collection_radio_buttons(:passenger, :id, service.shuttles, :id, :setoff_time) %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :number_of_seat %>
     <%= form.number_field :number_of_seat, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
